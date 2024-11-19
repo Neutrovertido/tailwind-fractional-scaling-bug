@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Tomorrow:wght@400;700&display=swap');
+
+@layer base {
+  html {
+    background-color: #1a1a1a; /* dark background */
+  }
+  body {
+    color: #e5e5e5; /* light text */
+    font-family: 'Tomorrow', sans-serif;
+  }
+}
