@@ -2,6 +2,8 @@
 
 This project is created to demonstrate a bug in Tailwind CSS, specifically when using the `mx-auto` utility in combination with fractional scaling on Windows 11 operating systems and the `xl` viewport.
 
+You can track the bug [here](https://github.com/tailwindlabs/tailwindcss/issues/15035).
+
 ## Bug Description
 
 The issue arises when the system scaling is set to a value above 100% (e.g., 125%, 150%) on Windows 11 (might also happen on MacOS and Linux). When using Tailwind CSS with the `xl` viewport and applying the `mx-auto` utility, the horizontal margin is presumably incorrectly calculated, causing the element to appear too close to the screen borders.
@@ -25,6 +27,11 @@ The element with the `mx-auto` utility should have consistent horizontal margins
 When system scaling is set to above 100%, the horizontal margin becomes much smaller than expected, causing the element to be too close to the screen borders.
 
 ![Actual Result](https://github.com/user-attachments/assets/23802274-591e-48d4-95ba-78fc48cd39b7)
+
+The bug does not occur on viewports other than `xl`.
+
+![Smaller Viewport](https://github.com/user-attachments/assets/03562a14-4cb2-4b00-85ad-ed597d9a0948)
+
 
 ## Live Demo
 
