@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Tailwind CSS mx-auto Bug Showcase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is created to demonstrate a bug in Tailwind CSS, specifically when using the `mx-auto` utility in combination with fractional scaling on Windows 11 operating systems and the `xl` viewport.
 
-## Available Scripts
+## Bug Description
 
-In the project directory, you can run:
+The issue arises when the system scaling is set to a value above 100% (e.g., 125%, 150%) on Windows 11 (might also happen on MacOS and Linux). When using Tailwind CSS with the `xl` viewport and applying the `mx-auto` utility, the horizontal margin is presumably incorrectly calculated, causing the element to appear too close to the screen borders.
 
-### `npm start`
+This bug does not occur when scaling the browser or when the system scaling is set to 100%.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Steps to Reproduce
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Set your system's display scale to a value above 100% (e.g., 125%, 150%) on a Windows 11 system.
+2. Create a webpage that uses Tailwind CSS (preferably with ReactJS) and the `mx-auto` utility with the `xl` viewport.
+3. Load the page in Mozilla Firefox or Chrome/any Chromium-based browser and observe the horizontal margin behavior.
 
-### `npm test`
+## Expected Behavior
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The element with the `mx-auto` utility should have consistent horizontal margins regardless of the system scaling settings. It should be equally distant from the screen borders, as shown in the expected result.
 
-### `npm run build`
+![Expected Result](https://github.com/user-attachments/assets/2da2865c-7e5e-4932-9705-dc47f02bd1ff)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Actual Behavior
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+When system scaling is set to above 100%, the horizontal margin becomes much smaller than expected, causing the element to be too close to the screen borders.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Actual Result](https://github.com/user-attachments/assets/23802274-591e-48d4-95ba-78fc48cd39b7)
 
-### `npm run eject`
+## Live Demo
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+You can view a live demo of the bug on the following link:  
+[Live Demo](https://glowing-sunshine-667537.netlify.app/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Environment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **ReactJS version**: v13.4.0
+- **Tailwind CSS version**: v3.4.15
+- **Node.js version**: v22.11
+- **Browser**: Mozilla Firefox / Chromium
+- **Operating System**: Windows 11
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Dependencies
 
-## Learn More
+- `autoprefixer`: ^10.4.20
+- `postcss`: ^8.4.49
+- `tailwindcss`: ^3.4.15
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Acknowledgements
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is purely for showcasing the bug. It is not an official bug fix however it does contain a [workaround using JavaScript functions](./src/ManualFixForApp.js).
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to fork this project and test it on different systems to help identify the cause and potential solutions for this bug.
